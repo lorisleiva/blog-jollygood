@@ -6,7 +6,7 @@ import:
 config:
   application: 'blog-jollygood'
   repository: 'git@github.com:lorisleiva/blog-jollygood.git'
-  php_fpm_version: 8.0
+  php_fpm_version: '8.0'
 
 hosts:
   prod:
