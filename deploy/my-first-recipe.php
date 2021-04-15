@@ -18,13 +18,6 @@ task('app:directory', function () {
     writeln($output);
 });
 
-desc('This is a test task.');
-task('app:test', function () {
-    cd('{{release_or_current_path}}');
-    $ls = run('ls -la');
-    writeln($ls);
-});
-
 desc('Demo all writing functions.');
 task('app:output', function () {
     writeln('This is a line written using "writeln".');
@@ -51,10 +44,11 @@ task('app:input', function () {
     writeln("Your secret ingredient is safe with me.");
 });
 
-option('force', null, InputOption::VALUE_NONE, 'Do not prompt any question.');
-desc('Demo prompting with options.');
-task('app:option', function () {
-    $force = input()->getOption('force', false);
-    $fruit = $force ? 'strawberry' : ask("What's your favourite fruit?", 'strawberry');
+set('should_prompt', true);
+
+desc('Demo bypassing prompts.');
+task('app:bypass:prompt', function () {
+    $shouldPrompt = get('should_prompt', true);
+    $fruit = $shouldPrompt ? ask("What's your favourite fruit?", 'strawberry') : 'strawberry';
     writeln("You're favourite fruit is: $fruit");
 });
