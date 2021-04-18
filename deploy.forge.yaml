@@ -10,8 +10,8 @@ config:
 
 hosts:
   prod:
-    remote_user: ploi
-    hostname: 'ploi.jollygood.app'
+    remote_user: forge
+    hostname: 'forge.jollygood.app'
     deploy_path: '~/{{hostname}}'
 
 tasks:
